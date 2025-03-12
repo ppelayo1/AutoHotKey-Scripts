@@ -52,6 +52,9 @@ F12::
 	;party
 	;main, Ulbrig, Seelah, Lann, Ember, Daeran
 
+	;saria
+	sariaSpells()
+
 	;Ember
 	emberSpells()
 	
@@ -74,6 +77,26 @@ debug(){
 	MouseMove, spellController.spell_7[1], spellController.spell_7[2]
 	
 	Return
+}
+
+sariaSpells(){
+	spellController := new SpellController
+	
+	;spell 1
+	castBuff(spellController.selectCasterCharacter1, spellController.castOncharacter1, spellController.spell_1, spellController.quickSpell)
+	
+	;spell 2
+	castBuff(spellController.selectCasterCharacter1, false, spellController.spell_2, spellController.quickSpell)
+	
+	;spell 3
+	castBuff(spellController.selectCasterCharacter1, false, spellController.spell_3, spellController.quickSpell)
+	
+	;spell 4
+	castBuff(spellController.selectCasterCharacter1, spellController.castOncharacter1, spellController.spell_4, spellController.quickSpell)
+	castBuff(spellController.selectCasterCharacter1, spellController.castOncharacter2, spellController.spell_4, spellController.quickSpell)
+	
+	;spell 5
+	castBuff(spellController.selectCasterCharacter1, spellController.castOncharacter3, spellController.spell_5)
 }
 	
 emberSpells(){
