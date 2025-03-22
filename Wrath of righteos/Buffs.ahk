@@ -101,15 +101,13 @@ sariaSpells(){
 	
 emberSpells(){
 	spellController := new SpellController
+	
+	;spell 1
 	castBuff(spellController.selectCasterCharacter5, spellController.castOncharacter4, spellController.spell_1, spellController.quickSpell)
 	castBuff(spellController.selectCasterCharacter5, spellController.castOncharacter5, spellController.spell_1, spellController.quickSpell)
-	
-	castBuff(spellController.selectCasterCharacter5, spellController.castOncharacter1, spellController.spell_2, spellController.quickSpell)
-	castBuff(spellController.selectCasterCharacter5, spellController.castOncharacter2, spellController.spell_2, spellController.quickSpell)
-	castBuff(spellController.selectCasterCharacter5, spellController.castOncharacter3, spellController.spell_2, spellController.quickSpell)
-	castBuff(spellController.selectCasterCharacter5, spellController.castOncharacter4, spellController.spell_2, spellController.quickSpell)
-	castBuff(spellController.selectCasterCharacter5, spellController.castOncharacter5, spellController.spell_2, spellController.quickSpell)
-	castBuff(spellController.selectCasterCharacter5, spellController.castOncharacter6, spellController.spell_2)
+
+	;spell 2
+	castBuff(spellController.selectCasterCharacter5, false, spellController.spell_2, spellController.quickSpell)
 	Return
 }
 
