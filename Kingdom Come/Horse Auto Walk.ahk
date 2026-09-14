@@ -1,62 +1,60 @@
-﻿disableAutoWalk(AutoWalk){
-	if (AutoWalk){
-		AutoWalk := false
-		SendInput {LShift up}
-	}
-}
+﻿#NoEnv
+#SingleInstance Force
+SetKeyDelay, 50, 50       ; Forces the game engine to notice keys
+SendMode Event            ; Switches from SendInput to SendEvent
+
+AutoWalk := false         ; Initialize the tracking variable
+
+#IfWinActive ahk_exe KingdomCome.exe
 
 Up::
 AutoWalk := true
-SendInput  {LShift down}
+Send {LShift down}       ; KCD defaults Shift to sprinting/running
 Return
 
-~+w::
-disableAutoWalk(AutoWalk)
-Return
-
-~+s::
-disableAutoWalk(AutoWalk)
-Return
-
-
-~+d::
-disableAutoWalk(AutoWalk)
-Return
-
-~+a::
-disableAutoWalk(AutoWalk)
-Return
-
-~+Escape::
-disableAutoWalk(AutoWalk)
-Return
+~+w::disableAutoWalk()
+~+s::disableAutoWalk()
+~+a::disableAutoWalk()
+~+d::disableAutoWalk()
+~+Escape::disableAutoWalk()
 
 +Space::
-disableAutoWalk(AutoWalk)
-SendInput Space
+disableAutoWalk()
+Send {Space}
 Return
 
 +1::
-disableAutoWalk(AutoWalk)
-SendInput 1
+disableAutoWalk()
+Send 1
 Return
 
 +2::
-disableAutoWalk(AutoWalk)
-SendInput 2
+disableAutoWalk()
+Send 2
 Return
 
 +m::
-disableAutoWalk(AutoWalk)
-SendInput m
+disableAutoWalk()
+Send m
 Return
 
 +i::
-disableAutoWalk(AutoWalk)
-SendInput i
+disableAutoWalk()
+Send i
 Return
 
 +j::
-disableAutoWalk(AutoWalk)
-SendInput j
+disableAutoWalk()
+Send j
 Return
+
+#IfWinActive
+
+; Fixed function to correctly modify the global variable
+disableAutoWalk() {
+    global AutoWalk
+    if (AutoWalk) {
+        AutoWalk := false
+        Send {LShift up}
+    }
+}
