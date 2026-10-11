@@ -6,6 +6,13 @@
 - Keep explanations practical, concise, and spoiler-light unless spoilers are requested.
 - Preserve user-created files and unrelated changes.
 
+## Git Workflow
+
+- This project lives inside the parent Git repository at `C:\github\AutoHotKey-Scripts`; `Wrath of righteos` is a subdirectory, not its own repository.
+- Run Git commands from the repository root or use `git -C "C:\github\AutoHotKey-Scripts" ...`; do not rely on the Wrath folder as Git's working directory.
+- Before committing, inspect `git status --short` and stage only `Wrath of righteos` unless the user explicitly asks to include another project.
+- When the user asks to publish changes, commit the verified staged files with a clear message, then push `main` to `origin`.
+
 ## AutoHotkey
 
 - Use AutoHotkey v1 syntax for `.ahk` scripts.
