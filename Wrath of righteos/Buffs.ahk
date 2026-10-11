@@ -109,8 +109,8 @@ F12::
 	BeginBuffCancellationWatch()
 	spellController := new SpellController
 
-	; Character 1: spell 1 is personal; spell 2 targets themself.
-	if (!castPersonalSpell(spellController.selectCasterCharacter1, spellController.spell_1, spellController.quickSpell))
+	; Character 1: spells 1 and 2 target themself.
+	if (!castTargetedSpell(spellController.selectCasterCharacter1, spellController.castOncharacter1, spellController.spell_1, spellController.quickSpell))
 		Return
 	; No delay after the final character 1 spell: move straight to character 3.
 	if (!castTargetedSpell(spellController.selectCasterCharacter1, spellController.castOncharacter1, spellController.spell_2))
