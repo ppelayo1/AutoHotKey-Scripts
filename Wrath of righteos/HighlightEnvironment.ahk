@@ -3,9 +3,8 @@
 #NoEnv
 #SingleInstance Force
 
-; Bind only while Wrath exists; fullscreen/borderless windows may not reliably
-; report themselves as active even when the game is receiving input.
-#IfWinExist ahk_exe Wrath.exe
+; Only accept the hotkeys while Wrath is the focused application.
+#IfWinActive ahk_exe Wrath.exe
 
 $Numpad2::
 highlightEnabled := false
@@ -14,14 +13,6 @@ SendInput {Numpad1 up}
 Return
 
 $Numpad1::
-if (!WinActive("ahk_exe Wrath.exe")) {
-    WinActivate, ahk_exe Wrath.exe
-    WinWaitActive, ahk_exe Wrath.exe, , 1
-}
-
-if (!WinActive("ahk_exe Wrath.exe"))
-    Return
-
 highlightEnabled := !highlightEnabled
 
 if (highlightEnabled) {
@@ -33,7 +24,7 @@ if (highlightEnabled) {
 }
 Return
 
-#IfWinExist
+#IfWinActive
 
 RefreshHold:
 ; Stop cleanly if the game has been closed, so Numpad1 can never remain held.
